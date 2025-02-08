@@ -6,5 +6,5 @@
     "baseUrl": "../../packages",
     "rootDir": "./src"
   },
-  "include": ["src/**/*"],
+  "include": ["./src/"],
 }
