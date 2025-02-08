@@ -1,0 +1,18 @@
+{
+    "name": "@arvin-shu/microcode-datasource-types",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "typings": "es/index.d.ts",
+    "files": [
+        "src",
+        "lib",
+        "es"
+    ],
+    "scripts": {
+        "clean": "rm -rf es lib",
+        "build": "npm run clean && tsc && tsc --outDir ./lib --module commonjs ",
+        "prepublishOnly": "npm run build"
+    }
+}

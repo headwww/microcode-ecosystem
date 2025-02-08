@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "lib":["ES2022","DOM","DOM.Iterable"],
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "jsx": "preserve",
+      "importHelpers": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "sourceMap": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "baseUrl": ".",
+      "rootDir": ".",
+      "useDefineForClassFields": true,
+      "paths": {
+        "@arvin-shu/microcode-*": ["packages/*/src"]
+      },
+      "outDir": "dist",
+    },
+    "include": ["typings/env.d.ts","packages/*/src/**/*"],
+    "exclude": ["**/tests/*", "**/*.test.ts", "**/dist", "**/es","**/lib",  "node_modules"]
+  }

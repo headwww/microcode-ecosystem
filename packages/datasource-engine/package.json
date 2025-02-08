@@ -1,0 +1,9 @@
+{
+    "name": "@arvin-shu/microcode-datasource-engine",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.ts",
+    "dependencies": {
+        "@arvin-shu/microcode-types": "^1.0.1"
+    }
+}
