@@ -41,7 +41,6 @@
     "dependencies": {
         "@ant-design/icons-vue": "^7.0.1",
         "@arvin-shu/microcode-datasource-engine": "workspace:^",
-        "@arvin-shu/microcode-datasource-types": "workspace:^",
         "ant-design-vue": "^4.2.5",
         "axios": "^1.7.9",
         "eventemitter2": "^6.4.9",
