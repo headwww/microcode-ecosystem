@@ -14,5 +14,9 @@
         "clean": "rm -rf es lib",
         "build": "npm run clean && tsc && tsc --outDir ./lib --module commonjs ",
         "prepublishOnly": "npm run build"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     }
 }
