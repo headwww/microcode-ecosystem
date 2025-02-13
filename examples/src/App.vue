@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { SingleMonacoEditor } from '@arvin-shu/microcode-plugin-base-monaco-editor';
 
 const theme = ref('vs'); // 默认主题
 const codeValue = ref("console.log('Hello, World!');"); // 动态代码值
@@ -24,7 +23,7 @@ function changeLanguage() {
 		<button @click="toggleTheme">切换主题</button>
 		<button @click="changeCodeValue">切换值</button>
 		<button @click="changeLanguage">切换语言</button>
-		<SingleMonacoEditor
+		<!--	<SingleMonacoEditor
 			v-model:value="codeValue"
 			:language="language"
 			:theme="theme"
@@ -35,5 +34,5 @@ function changeLanguage() {
 				},
 			}"
 		/>
-	</div>
+		--></div>
 </template>

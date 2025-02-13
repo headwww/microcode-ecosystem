@@ -20,6 +20,8 @@ export const buildDts = async () => {
 		emitDeclarationOnly: true,
 		// 指定根目录
 		rootDir: `${getDir()}/src`,
+		// 移除 outDir 设置，防止默认输出
+		// outDir: `${getDir()}/dist`, // 删除或注释掉这一行
 	};
 
 	// 创建一个新的 TypeScript 项目实例
@@ -28,21 +30,17 @@ export const buildDts = async () => {
 		compilerOptions,
 		// tsconfig 文件路径
 		tsConfigFilePath,
-		// 跳过从 tsconfig 文件中添加文件 files和include
+		// 跳过从 tsconfig 文件中添加文件 files 和 include
 		skipAddingFilesFromTsConfig: true,
 	});
 
 	const sourceFiles = await addSourceFiles(project);
 
 	consola.success('++++++++已成功添加所有源文件到项目中');
-	// TODO 取消类型检查，后期想办法
-	// typeCheck(project);
-	typeCheck;
-	consola.success('✔✔✔✔✔✔✔✔类型检查通过！！！');
 
-	await project.emit({
-		emitOnlyDtsFiles: true,
-	});
+	// 类型检查
+	typeCheck(project);
+	consola.success('✔✔✔✔✔✔✔✔类型检查通过！！！');
 
 	// 生成声明文件
 	const tasks = sourceFiles.map(async (sourceFile) => {
@@ -139,7 +137,7 @@ async function addSourceFiles(project: Project) {
  * @param project
  */
 function typeCheck(project: Project) {
-	// 获取项目中的所有诊断信息(类型错误、语法错误等)
+	// 获取项目中的所有诊断信息（类型错误、语法错误等）
 	const diagnostics = project.getPreEmitDiagnostics();
 	if (diagnostics.length > 0) {
 		consola.error(project.formatDiagnosticsWithColorAndContext(diagnostics));

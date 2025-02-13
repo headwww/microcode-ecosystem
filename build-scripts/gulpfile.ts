@@ -1,20 +1,6 @@
 import { series, parallel } from 'gulp';
 import { mkdir, rm, copyFile } from 'fs/promises';
-import { getDir, outputRoot, projRoot, runTask, withTaskName } from './src';
-
-/**
- * 复制主题
- */
-export const copyTheme = async () => {
-	await Promise.all([
-		mkdir(`${getDir()}/dist/dist/css`, { recursive: true }).then(() =>
-			copyFile(
-				`${projRoot}/packages/theme/dist/index.css`,
-				`${getDir()}/dist/dist/css/index.css`
-			)
-		),
-	]);
-};
+import { getDir, outputRoot, runTask, withTaskName } from './src';
 
 /**
  * 复制描述文件
@@ -41,19 +27,8 @@ export default series(
 		runTask('buildTheme'),
 		runTask('buildUmd'),
 		runTask('buildDts')
-	)
-	// !isBuildTheme
-	// 	? parallel(
-	// 			runTask('buildModules'),
-	// 			// 构建 UMD 格式
-	// 			isBuildUmd ? runTask('buildUmd') : [],
-	// 			runTask('buildDts')
-	// 		)
-	// 	: parallel(runTask('buildTheme')),
-	// withTaskName('清理额外的产物', () =>
-	// 	rm(`${projRoot}/dist`, { recursive: true, force: true })
-	// ),
-	// parallel(isCopyTheme ? runTask('copyTheme') : [], runTask('copyDescriptions'))
+	),
+	parallel(runTask('copyDescriptions'))
 );
 
 export * from './src';
