@@ -2,7 +2,6 @@
     "name": "@arvin-shu/microcode-plugin-base-monaco-editor",
     "version": "1.0.0",
     "description": "",
-<<<<<<< HEAD
     "files": [
         "lib",
         "es",
@@ -11,9 +10,6 @@
     "main": "lib/index.js",
     "module": "es/index.js",
     "stylePath": "theme/index.css",
-=======
-    "main": "./src/index.ts",
->>>>>>> 4d0995686cc0e05f6a923ab85e3424fd56726065
     "scripts": {
         "build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,12 +22,9 @@
     },
     "dependencies": {
         "@monaco-editor/loader": "^1.4.0"
-<<<<<<< HEAD
     },
     "publishConfig": {
         "access": "public",
         "registry": "https://registry.npmjs.org/"
-=======
->>>>>>> 4d0995686cc0e05f6a923ab85e3424fd56726065
     }
 }
