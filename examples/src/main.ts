@@ -6,6 +6,7 @@ import qs from 'query-string';
 import App from './App.vue';
 
 import './rest.scss';
+import '@arvin-shu/microcode-plugin-base-monaco-editor/src/index.scss';
 
 window.Vue = Vue;
 const app = Vue.createApp(App);

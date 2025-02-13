@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [vue(), vueJsx(), eslintPlugin(), stylelitPlugin()],
 	server: {
 		host: '0.0.0.0',
-		port: 9098,
+		port: 9097,
 		open: true, // 自动打开浏览器
 	},
 	build: {
