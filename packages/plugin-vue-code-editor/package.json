@@ -1,0 +1,30 @@
+{
+    "name": "@arvin-shu/microcode-plugin-vue-code-editor",
+    "version": "1.0.0",
+    "description": "",
+    "files": [
+        "lib",
+        "es",
+        "theme"
+    ],
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "stylePath": "theme/index.css",
+    "scripts": {
+        "build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "monaco-editor": "^0.52.2"
+    },
+    "dependencies": {
+        "@monaco-editor/loader": "^1.4.0"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    }
+}

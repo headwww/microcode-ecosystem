@@ -134,5 +134,7 @@ export function createDataSourceItem(
 		status,
 		loading,
 		load,
+		isInit: dataSourceConfig.isInit,
+		isSync: dataSourceConfig.isSync,
 	});
 }
