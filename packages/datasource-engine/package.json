@@ -1,27 +1,27 @@
 {
-    "name": "@arvin-shu/microcode-datasource-engine",
-    "version": "1.0.0",
-    "description": "",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "files": [
-        "dist",
-        "es",
-        "src"
-    ],
-    "scripts": {
-        "clean": "rm -rf dist",
-        "build": "npm run clean && tsc && npm run build:es",
-        "build:es": "tsc --target es5 --module es6 --outDir es",
-        "prepublishOnly": "npm run build"
-    },
-    "dependencies": {
-        "@arvin-shu/microcode-datasource-types": "^1.0.1",
-        "@arvin-shu/microcode-types": "^1.0.1",
-        "lodash": "^4.17.21"
-    },
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
-    }
+	"name": "@arvin-shu/microcode-datasource-engine",
+	"version": "1.0.1",
+	"description": "",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"es",
+		"src"
+	],
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && tsc && npm run build:es",
+		"build:es": "tsc --target es5 --module es6 --outDir es",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"@arvin-shu/microcode-datasource-types": "^1.0.1",
+		"@arvin-shu/microcode-types": "^1.0.1",
+		"lodash": "^4.17.21"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	}
 }
