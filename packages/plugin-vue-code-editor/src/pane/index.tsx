@@ -129,7 +129,6 @@ export const VueCodeEditorPane = defineComponent({
 			project?.simulatorHost?.renderer?.rerender();
 		}, 250);
 
-		// TODO 设置MonacoEditor的path
 		return () => (
 			<Tabs
 				size="small"

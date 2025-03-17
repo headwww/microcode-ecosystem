@@ -1,0 +1,39 @@
+{
+	"name": "@arvin-shu/microcode-plugin-datasource-pane",
+	"version": "1.0.0",
+	"description": "",
+	"files": [
+		"lib",
+		"es"
+	],
+	"main": "lib/index.js",
+	"module": "es/index.js",
+	"scripts": {
+		"build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"monaco-editor": "^0.52.2"
+	},
+	"dependencies": {
+		"@arvin-shu/microcode-datasource-types": "^1.0.1",
+		"@arvin-shu/microcode-editor-core": "^1.0.3",
+		"@arvin-shu/microcode-engine": "^1.0.1",
+		"@arvin-shu/microcode-plugin-base-monaco-editor": "^1.0.0",
+		"@arvin-shu/microcode-types": "^1.0.4",
+		"@arvin-shu/microcode-utils": "^1.0.4",
+		"@types/sortablejs": "^1.15.8",
+		"ant-design-vue": "^4.2.5",
+		"lodash-es": "^4.17.21",
+		"typescript": "^5.7.3",
+		"vue": "^3.5.13",
+		"vue-draggable-plus": "^0.6.0"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	}
+}
