@@ -21,7 +21,15 @@
         "monaco-editor": "^0.52.2"
     },
     "dependencies": {
-        "@monaco-editor/loader": "^1.4.0"
+        "@arvin-shu/microcode-plugin-base-monaco-editor": "^1.0.0",
+        "@arvin-shu/microcode-types": "^1.0.1",
+        "@arvin-shu/microcode-utils": "^1.0.4",
+        "@monaco-editor/loader": "^1.4.0",
+        "acorn": "^8.14.1",
+        "ant-design-vue": "^4.2.5",
+        "lodash-es": "^4.17.21",
+        "magic-string": "^0.30.17",
+        "short-uuid": "^5.2.0"
     },
     "publishConfig": {
         "access": "public",
