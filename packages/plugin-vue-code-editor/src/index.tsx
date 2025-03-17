@@ -2,13 +2,12 @@ import { IPublicModelPluginContext } from '@arvin-shu/microcode-types';
 import { VueCodeEditorPane } from './pane';
 import '@arvin-shu/microcode-plugin-base-monaco-editor/theme/index.css';
 import { CodeIcon } from './icons/code';
+import { intlNode } from './locale';
 
-const InitVueCodeEditor = ({
-	project,
-	skeleton,
-	event,
-	material,
-}: IPublicModelPluginContext) => ({
+const InitVueCodeEditor = (
+	{ project, skeleton, event, material }: IPublicModelPluginContext,
+	options: any
+) => ({
 	init() {
 		const codePane = skeleton.add({
 			area: 'leftArea',
@@ -16,17 +15,18 @@ const InitVueCodeEditor = ({
 			type: 'PanelDock',
 			props: {
 				icon: <CodeIcon />,
-				description: '源码面板',
+				description: intlNode('FunctionPanel'),
 			},
 			panelProps: {
 				width: '600px',
-				title: '源码面板',
+				title: intlNode('FunctionPanel'),
 			},
 			content: (
 				<VueCodeEditorPane
 					material={material}
 					project={project}
 					skeleton={skeleton}
+					requireConfig={options.requireConfig}
 					event={event}
 				/>
 			),

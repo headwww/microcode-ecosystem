@@ -52,6 +52,9 @@ export const JsEditor = defineComponent({
 			type: Object as PropType<IPublicApiMaterial>,
 			required: true,
 		},
+		requireConfig: {
+			type: Object as PropType<any>,
+		},
 	},
 	emits: ['change'],
 	setup(props, { expose, emit }) {
@@ -242,6 +245,7 @@ export const JsEditor = defineComponent({
 				style={{ height: '100%' }}
 				value={code.value}
 				editorDidMount={initEditor}
+				requireConfig={props.requireConfig}
 				onChange={(value) => {
 					code.value = value;
 					emit('change', value);

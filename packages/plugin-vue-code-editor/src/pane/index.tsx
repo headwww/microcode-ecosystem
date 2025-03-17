@@ -13,6 +13,7 @@ import { debounce, isString } from 'lodash-es';
 import { defaultCode } from '../config';
 import { parsePropsToCode, parseSchemaToCode } from './parse';
 import { JsEditor } from '../components';
+import { intlNode } from '../locale';
 
 export const VueCodeEditorPane = defineComponent({
 	name: 'VueCodeEditorPane',
@@ -29,6 +30,9 @@ export const VueCodeEditorPane = defineComponent({
 		},
 		skeleton: {
 			type: Object as PropType<IPublicApiSkeleton>,
+		},
+		requireConfig: {
+			type: Object as PropType<any>,
 		},
 	},
 
@@ -102,7 +106,7 @@ export const VueCodeEditorPane = defineComponent({
 						type="primary"
 						class="mtc-code-pane-save-btn"
 					>
-						保存
+						{intlNode('Save')}
 					</Button>
 				</div>
 			);
@@ -138,6 +142,7 @@ export const VueCodeEditorPane = defineComponent({
 					<JsEditor
 						ref={jsEditor}
 						code={jsCode.value}
+						requireConfig={props.requireConfig}
 						material={props.material!}
 					></JsEditor>
 				</TabPane>
@@ -148,6 +153,7 @@ export const VueCodeEditorPane = defineComponent({
 						height="100%"
 						style={{ height: '100%' }}
 						supportFullScreen
+						requireConfig={props.requireConfig}
 						onChange={(value) => {
 							cssCode.value = value;
 						}}
