@@ -26,7 +26,7 @@ export const buildModules = async () => {
 				extract: false,
 				modules: false,
 				use: ['sass'],
-				inject: false,
+				inject: true,
 				autoModules: false,
 				minimize: true,
 			}),
