@@ -1,0 +1,30 @@
+{
+	"name": "@arvin-shu/microcode-plugin-undo-redo",
+	"version": "1.0.0",
+	"description": "",
+	"files": [
+		"lib",
+		"es"
+	],
+	"main": "lib/index.js",
+	"module": "es/index.js",
+	"scripts": {
+		"build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"monaco-editor": "^0.52.2"
+	},
+	"dependencies": {
+		"@arvin-shu/microcode-editor-core": "^1.0.3",
+		"@arvin-shu/microcode-types": "^1.0.1",
+		"@arvin-shu/microcode-engine": "^1.0.1"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	}
+}
