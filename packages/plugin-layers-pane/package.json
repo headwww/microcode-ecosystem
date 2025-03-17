@@ -1,5 +1,5 @@
 {
-	"name": "@arvin-shu/microcode-plugin-datasource-pane",
+	"name": "@arvin-shu/microcode-plugin-layers-pane",
 	"version": "1.0.0",
 	"description": "",
 	"files": [
@@ -16,18 +16,10 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@arvin-shu/microcode-datasource-types": "^1.0.1",
 		"@arvin-shu/microcode-editor-core": "^1.0.3",
-		"@arvin-shu/microcode-engine": "^1.0.1",
-		"@arvin-shu/microcode-plugin-base-monaco-editor": "^1.0.0",
 		"@arvin-shu/microcode-types": "^1.0.4",
 		"@arvin-shu/microcode-utils": "^1.0.4",
-		"@types/sortablejs": "^1.15.8",
-		"ant-design-vue": "^4.2.5",
-		"lodash-es": "^4.17.21",
-		"typescript": "^5.7.3",
-		"vue": "^3.5.13",
-		"vue-draggable-plus": "^0.6.0"
+		"eventemitter2": "^6.4.9"
 	},
 	"publishConfig": {
 		"access": "public",
