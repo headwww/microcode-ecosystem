@@ -1,7 +1,7 @@
-import { CodeOutlined } from '@ant-design/icons-vue';
 import { IPublicModelPluginContext } from '@arvin-shu/microcode-types';
 import { VueCodeEditorPane } from './pane';
 import '@arvin-shu/microcode-plugin-base-monaco-editor/theme/index.css';
+import { CodeIcon } from './icons/code';
 
 const InitVueCodeEditor = ({
 	project,
@@ -15,7 +15,7 @@ const InitVueCodeEditor = ({
 			name: 'codeEditor',
 			type: 'PanelDock',
 			props: {
-				icon: <CodeOutlined />,
+				icon: <CodeIcon />,
 				description: '源码面板',
 			},
 			panelProps: {

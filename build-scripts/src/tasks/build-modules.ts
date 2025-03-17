@@ -6,6 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import postcss from 'rollup-plugin-postcss';
 import { outputRoot, getDir, generateExternal } from '../utils';
 import { progressPlugin } from '../plugins/spinner';
 
@@ -21,6 +22,14 @@ export const buildModules = async () => {
 		input,
 		plugins: [
 			progressPlugin(),
+			postcss({
+				extract: false,
+				modules: false,
+				use: ['sass'],
+				inject: false,
+				autoModules: false,
+				minimize: true,
+			}),
 			vue({
 				include: [/\.vue$/, /\.md$/],
 			}) as unknown as Plugin,

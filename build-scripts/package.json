@@ -35,6 +35,8 @@
 		"@vitejs/plugin-vue": "^5.1.4",
 		"@vitejs/plugin-vue-jsx": "^4.0.1",
 		"ora": "^8.1.1",
+		"rollup-plugin-postcss": "^4.0.2",
+		"sass": "^1.79.3",
 		"unplugin-vue-macros": "^2.13.3"
 	}
 }

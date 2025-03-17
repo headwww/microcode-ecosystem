@@ -1,38 +1,36 @@
 {
-    "name": "@arvin-shu/microcode-plugin-vue-code-editor",
-    "version": "1.0.0",
-    "description": "",
-    "files": [
-        "lib",
-        "es",
-        "theme"
-    ],
-    "main": "lib/index.js",
-    "module": "es/index.js",
-    "stylePath": "theme/index.css",
-    "scripts": {
-        "build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "monaco-editor": "^0.52.2"
-    },
-    "dependencies": {
-        "@arvin-shu/microcode-plugin-base-monaco-editor": "^1.0.0",
-        "@arvin-shu/microcode-types": "^1.0.1",
-        "@arvin-shu/microcode-utils": "^1.0.4",
-        "@monaco-editor/loader": "^1.4.0",
-        "acorn": "^8.14.1",
-        "ant-design-vue": "^4.2.5",
-        "lodash-es": "^4.17.21",
-        "magic-string": "^0.30.17",
-        "short-uuid": "^5.2.0"
-    },
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
-    }
+	"name": "@arvin-shu/microcode-plugin-vue-code-editor",
+	"version": "1.0.0",
+	"description": "",
+	"files": [
+		"lib",
+		"es"
+	],
+	"main": "lib/index.js",
+	"module": "es/index.js",
+	"scripts": {
+		"build": "cross-env ORIGINAL_CWD=$PWD pnpm --filter ../../build-scripts run start",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"monaco-editor": "^0.52.2"
+	},
+	"dependencies": {
+		"@arvin-shu/microcode-plugin-base-monaco-editor": "^1.0.0",
+		"@arvin-shu/microcode-types": "^1.0.1",
+		"@arvin-shu/microcode-utils": "^1.0.4",
+		"@monaco-editor/loader": "^1.4.0",
+		"acorn": "^8.14.1",
+		"ant-design-vue": "^4.2.5",
+		"lodash-es": "^4.17.21",
+		"magic-string": "^0.30.17",
+		"short-uuid": "^5.2.0"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	}
 }
