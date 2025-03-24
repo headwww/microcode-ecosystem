@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, ref } from 'vue';
+import { defineComponent, PropType, ref, watchEffect } from 'vue';
 import MonacoEditor from '@arvin-shu/microcode-plugin-base-monaco-editor';
 import {
 	IPublicApiEvent,
@@ -50,13 +50,16 @@ export const VueCodeEditorPane = defineComponent({
 
 		const cssCode = ref(schema.value?.css);
 
-		const jsCode = computed(() => {
+		const jsCode = ref('');
+
+		watchEffect(() => {
 			if (!schema.value) return '';
 			const originCode = (schema.value as any).originCode;
 			if (isString(originCode)) {
-				return originCode;
+				jsCode.value = originCode;
+				return;
 			}
-			return defaultCode
+			jsCode.value = defaultCode
 				.replace(
 					/\s*props: {(\s*\/\*@{props:(\d+)}\*\/)\s*},/,
 					(matched, placeholder, indent) => {
@@ -116,7 +119,7 @@ export const VueCodeEditorPane = defineComponent({
 				<div>
 					<DefaultTabBar {...props} />
 					<Button
-						onClick={updateCssCode}
+						onClick={onSave}
 						type="primary"
 						class="mtc-code-pane-save-btn"
 					>
@@ -126,7 +129,7 @@ export const VueCodeEditorPane = defineComponent({
 			);
 		}
 
-		const updateCssCode = debounce(() => {
+		const onSave = debounce(() => {
 			const currentSchema = project?.currentDocument
 				? project.currentDocument.exportSchema(IPublicEnumTransformStage.Render)
 				: schema.value;
@@ -137,6 +140,7 @@ export const VueCodeEditorPane = defineComponent({
 				jsEditor.value?.transformSchema(currentSchema) ?? currentSchema;
 
 			newSchema.css = cssCode.value;
+			newSchema.originCode = jsCode.value;
 			if (project?.currentDocument) {
 				project.currentDocument.importSchema(newSchema);
 			}
@@ -157,6 +161,13 @@ export const VueCodeEditorPane = defineComponent({
 						code={jsCode.value}
 						requireConfig={props.requireConfig}
 						material={props.material!}
+						onChange={(value) => {
+							jsCode.value = value;
+						}}
+						onAddFunction={(value) => {
+							jsCode.value = value;
+							onSave();
+						}}
 					></JsEditor>
 				</TabPane>
 				<TabPane key="css" tab="index.css">

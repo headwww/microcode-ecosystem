@@ -56,7 +56,7 @@ export const JsEditor = defineComponent({
 			type: Object as PropType<any>,
 		},
 	},
-	emits: ['change'],
+	emits: ['change', 'addFunction'],
 	setup(props, { expose, emit }) {
 		const code = ref(props.code);
 
@@ -225,6 +225,7 @@ export const JsEditor = defineComponent({
 				}
 
 				model.setValue(s.toString());
+				emit('addFunction', code.value);
 				params.functionName && this.focusByFunctionName(params);
 			},
 		};
