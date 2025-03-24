@@ -20,7 +20,7 @@ export interface JsEditorInst {
 	code: Ref<string>;
 	monaco: Ref<any>;
 	addFunction(params: FunctionEventParams): void;
-	focusByFunctionName(name: string): void;
+	focusByFunctionName(params: FunctionEventParams): void;
 	transformSchema(
 		rawSchema: IPublicTypeRootSchema
 	): IPublicTypeRootSchema | void;
@@ -123,19 +123,14 @@ export const JsEditor = defineComponent({
 
 				return transformed;
 			},
-			focusByFunctionName(name: string) {
+			focusByFunctionName({ functionName }: FunctionEventParams) {
 				const monacoEditor = toRaw(editorRef.value);
-				const model = monacoEditor?.getModel();
-				const matchedResult =
-					model &&
-					'findMatches' in model &&
-					model.findMatches(
-						`^\\s*(?:async)?\\s*${name}\\s*\\([\\s\\S]*\\)[\\s\\S]*\\{`,
+				const matchedResult = monacoEditor
+					?.getModel()
+					?.findMatches(
+						`^\\s*(?:async)?\\s*${functionName}\\s*\\([\\s\\S]*\\)[\\s\\S]*\\{`,
 						false,
-						true,
-						false,
-						null,
-						false
+						true
 					)?.[0];
 				if (matchedResult) {
 					setTimeout(() => {
@@ -230,7 +225,7 @@ export const JsEditor = defineComponent({
 				}
 
 				model.setValue(s.toString());
-				params.functionName && this.focusByFunctionName(params.functionName);
+				params.functionName && this.focusByFunctionName(params);
 			},
 		};
 
