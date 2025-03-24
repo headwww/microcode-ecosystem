@@ -96,6 +96,20 @@ export const VueCodeEditorPane = defineComponent({
 
 		const currentTab = ref('js');
 
+		props.event?.on('common:codeEditor.focusByFunction', (params) => {
+			currentTab.value = 'js';
+			setTimeout(() => {
+				jsEditor.value?.focusByFunctionName(params);
+			}, 100);
+		});
+
+		props.event?.on('common:codeEditor.addFunction', (params) => {
+			currentTab.value = 'js';
+			setTimeout(() => {
+				jsEditor.value?.addFunction(params);
+			}, 100);
+		});
+
 		function renderTabBar(props: any) {
 			const { DefaultTabBar } = props;
 			return (
