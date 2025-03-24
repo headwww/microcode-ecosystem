@@ -1,5 +1,5 @@
 import MonacoEditor from '@arvin-shu/microcode-plugin-base-monaco-editor';
-import { defineComponent, onMounted, PropType, Ref, ref } from 'vue';
+import { defineComponent, onMounted, PropType, Ref, ref, toRaw } from 'vue';
 import {
 	IPublicApiMaterial,
 	IPublicTypeRootSchema,
@@ -124,7 +124,7 @@ export const JsEditor = defineComponent({
 				return transformed;
 			},
 			focusByFunctionName(name: string) {
-				const monacoEditor = editorRef.value;
+				const monacoEditor = toRaw(editorRef.value);
 				const model = monacoEditor?.getModel();
 				const matchedResult =
 					model &&
@@ -154,8 +154,8 @@ export const JsEditor = defineComponent({
 			},
 
 			addFunction(params: FunctionEventParams) {
-				const monaco = monacoRef.value;
-				const editor = editorRef.value;
+				const monaco = toRaw(monacoRef.value);
+				const editor = toRaw(editorRef.value);
 
 				if (!monaco || !editor) return;
 
