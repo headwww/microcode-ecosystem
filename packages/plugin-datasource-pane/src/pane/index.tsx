@@ -44,7 +44,18 @@ export const DataSourcePaneWrapper = defineComponent({
 		},
 	},
 	setup(props) {
-		const dataSource = ref<DataSourceConfig[]>();
+		const { project } = props;
+		const projectSchema =
+			project?.exportSchema(IPublicEnumTransformStage.Save) ?? {};
+		let schema = null;
+		if (!schema) {
+			schema = get(projectSchema, 'componentsTree[0].dataSource');
+		}
+		// 发现不合法的 schema 进行纠正
+		if (!isSchemaValid(schema)) {
+			schema = correctSchema(schema);
+		}
+		const dataSource = ref<DataSourceConfig[]>(schema?.list ?? []);
 
 		onMounted(() => {
 			const { skeleton } = props;
@@ -136,6 +147,10 @@ export const DataSourcePane = defineComponent({
 				options: {
 					uri: '',
 					method: 'POST',
+				},
+				dataHandler: {
+					type: 'JSFunction',
+					value: 'function dataHandler(res) { \n\treturn res\n}\n',
 				},
 			};
 			dataSourceList.value.push(newDataSource);

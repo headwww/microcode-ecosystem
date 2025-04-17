@@ -12,7 +12,7 @@ export const willFetch = `function willFetch(options) {
 `;
 
 export const dataHandler = `function dataHandler(res) { 
-return res.data
+	return res
 }
 `;
 
