@@ -6,7 +6,7 @@ import {
 	RuntimeOptionsConfig,
 	UrlParamsHandler,
 } from '@arvin-shu/microcode-datasource-types';
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 import { computed, reactive, ref, shallowRef } from 'vue';
 
 export function createDataSourceItem(

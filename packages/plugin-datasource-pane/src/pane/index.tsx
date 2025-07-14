@@ -3,7 +3,7 @@ import {
 	IPublicApiSkeleton,
 	IPublicEnumTransformStage,
 } from '@arvin-shu/microcode-types';
-import { cloneDeep, get, isEmpty, set } from 'lodash';
+import { cloneDeep, get, isEmpty, set } from 'lodash-es';
 import {
 	computed,
 	defineComponent,
