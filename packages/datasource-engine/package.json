@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@arvin-shu/microcode-datasource-types": "^1.0.1",
-        "@arvin-shu/microcode-types": "^1.0.6",
+        "@arvin-shu/microcode-types": "^1.0.7",
         "lodash-es": "^4.17.21"
     },
     "publishConfig": {
